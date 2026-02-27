@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Always Forever 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 42px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .romantic-btn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no {
+            background-color: #dc3545;
+            color: white;
+            position: relative;
+        }
+
+        .letter {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        img {
+            width: 300px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .proposal {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- LOGIN PAGE -->
+<div class="container" id="loginPage">
+    <h1>💖 Always Forever 💖</h1>
+    <p>Enter the Secret Password to Open My Heart 🔐</p>
+    <input type="password" id="password" placeholder="Enter Password">
+    <br><br>
+    <button class="romantic-btn" onclick="checkPassword()">Open My Heart 💘</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container hidden" id="mainContent">
+
+    <h1>💞 Our Beautiful Memory 💞</h1>
+
+    <!-- ONE PHOTO -->
+    <img src="https://via.placeholder.com/300" alt="Our Photo">
+
+    <!-- HIDDEN FEELINGS -->
+    <br><br>
+    <button class="romantic-btn" onclick="openLetter()">Open Hidden Feelings 💌</button>
+
+    <div id="letterBox" class="hidden letter">
+        <p>
+            i love you, thaagi unna ani chepadam ledu promise ga cheputhana 
+            nuvu antey naki chala istam inka late chestey nuvu akkada doorqm 
+            ayepothavu aney bayam tho choputhana i love you so much ❤️
+        </p>
+    </div>
+
+    <!-- PROPOSAL SECTION -->
+    <div class="proposal">
+        <h2>💍 I Love You 💍</h2>
+        <button class="yes" onclick="acceptLove()">Yes 💖</button>
+        <button class="no" onmouseover="moveNoButton()">No ❌</button>
+    </div>
+
+</div>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+    // Encrypted password for yogireddy@8899
+    const encryptedPassword = "eW9naXJlZGR5QDg4OTk=";
+
+    function checkPassword() {
+        let input = document.getElementById("password").value;
+        let encodedInput = btoa(input);
+
+        if(encodedInput === encryptedPassword){
+            document.getElementById("loginPage").classList.add("hidden");
+            document.getElementById("mainContent").classList.remove("hidden");
+
+            // Play music after unlock
+            document.getElementById("bgMusic").play();
+        } else {
+            alert("Wrong Password 💔 Try Again!");
+        }
+    }
+
+    function openLetter() {
+        document.getElementById("letterBox").classList.remove("hidden");
+    }
+
+    function acceptLove() {
+        alert("Yayyyyy 💖 Forever Starts Now! 💍❤️");
+    }
+
+    function moveNoButton() {
+        const button = document.querySelector(".no");
+        button.style.position = "absolute";
+        button.style.top = Math.random() * 80 + "%";
+        button.style.left = Math.random() * 80 + "%";
+    }
+</script>
+
+</body>
+</html>
